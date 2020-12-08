@@ -4,11 +4,10 @@ import React, { useState } from "react";
 import { Dimensions, StyleSheet, Text, View } from "react-native";
 import { TabBar, TabView } from "react-native-tab-view";
 import Constants from "expo-constants";
+import MeasureView from "./components/MeasureView";
+import { primaryColor } from "./components/colors";
 
 const measures = convert().measures();
-const primaryColor = "#052f5f";
-
-const MeasureView = ({ measure }) => <Text>{measure}</Text>;
 
 function unCamelCase(value) {
   return value.replace(/([A-Z])/g, " $1");
@@ -26,7 +25,7 @@ export default function App() {
 
   return (
     <View style={[styles.scene, { marginTop: Constants.statusBarHeight }]}>
-      <Text style={styles.title}>unit Convertool</Text>
+      <Text style={styles.title}>Convertool</Text>
       <TabView
         navigationState={{ index, routes }}
         renderScene={renderScene}
